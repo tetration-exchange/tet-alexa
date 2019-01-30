@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 
 	"github.com/aws/aws-lambda-go/events"
@@ -15,6 +16,15 @@ func Handler(kinesisEvent events.KinesisEvent) {
 		dataText := string(dataBytes)
 
 		fmt.Printf("%s Data = %s \n", record.EventName, dataText)
+
+		var jMap map[string]interface{}
+		if err := json.Unmarshal(dataBytes, &jMap); err != nil {
+			fmt.Printf("Error: %s\n", err)
+			return
+		}
+
+		//alertText := jMap["alertText"]
+
 	}
 }
 
