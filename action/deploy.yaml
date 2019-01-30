@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  TetAlexLambda:
+    Properties:
+      CodeUri: s3://tet-alexa/7982743591f28af572eeebf5b8ed1214
+      Environment:
+        Variables:
+          S3_BUCKET: tet_alexa_lambda
+      Events:
+        AlexaSkillEvent:
+          Type: AlexaSkill
+      Handler: tet-alexa-action
+      Runtime: go1.x
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31

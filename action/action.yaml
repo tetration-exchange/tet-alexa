@@ -4,9 +4,9 @@ Resources:
   TetAlexLambda:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: tet-alexa
+      Handler: tet-alexa-action
       Runtime: go1.x
-      CodeUri: ./deploy/tet-alexa.zip
+      CodeUri: ./deploy/tet-alexa-action.zip
       Environment:
         Variables: 
           S3_BUCKET: tet_alexa_lambda

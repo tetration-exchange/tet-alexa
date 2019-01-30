@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  TetAlexLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: tet-alexa-notification
+      Runtime: go1.x
+      CodeUri: ./deploy/tet-alexa-notification.zip
+      Environment:
+        Variables: 
+          S3_BUCKET: tet_alexa_lambda
+      Events:
+        KinesisEvent:
+          Type: Kinesis
+          Properties:
+            Stream: arn:aws:kinesis:us-west-2:938996165657:stream/vesx2
+            StartingPosition: LATEST
+            BatchSize: 100
