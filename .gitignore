@@ -1,2 +1,2 @@
 deploy/
-serverless-deploy*
+deploy.yaml
