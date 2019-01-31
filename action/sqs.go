@@ -44,7 +44,7 @@ func handleNotification(request alexa.Request) alexa.Response {
 	for _, m := range result.Messages {
 		// *string to string
 		sensorName = *m.Body
-		return alexa.NewSimpleResponse("Notification received", fmt.Sprintf("Message available, a sensor has gone offline with hostname %s", sensorName))
+		return alexa.NewSimpleResponse("Notification received", fmt.Sprintf("Message available, a sensor has tampered with i p tables with hostname %s", sensorName))
 	}
 	return alexa.NewSimpleResponse("No messages", "There are no notifications")
 }
