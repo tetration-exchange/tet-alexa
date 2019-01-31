@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"strings"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
@@ -24,7 +25,8 @@ func Handler(kinesisEvent events.KinesisEvent) {
 		}
 
 		//alertText := jMap["alertText"]
-
+		s := strings.Fields(jMap["alertText"].(string))
+		sendSNS(s[0])
 	}
 }
 
