@@ -1,3 +1,4 @@
 deploy/
 deploy.yaml
 .envrc
+notification/deploy.yaml

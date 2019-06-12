@@ -26,7 +26,7 @@ func Handler(kinesisEvent events.KinesisEvent) {
 
 		//alertText := jMap["alertText"]
 		s := strings.Fields(jMap["alertText"].(string))
-		sendSNS(s[0])
+		sendSQS(s[0])
 	}
 }
 
