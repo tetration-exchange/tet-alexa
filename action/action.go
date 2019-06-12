@@ -10,6 +10,8 @@ import (
 func DispatchIntents(request alexa.Request) alexa.Response {
 	var response alexa.Response
 	switch request.Body.Intent.Name {
+	case "NotificationIntent":
+		response = handleNotification(request)
 	case "QuarantineIntent":
 		response = handleQuarantine(request)
 	case alexa.HelpIntent:
@@ -21,7 +23,7 @@ func DispatchIntents(request alexa.Request) alexa.Response {
 	return response
 }
 
-func NewTetration() *goh4.H4 {
+func newTetration() *goh4.H4 {
 
 	tetration := new(goh4.H4)
 	tetration.Secret = "8ab282b6a8fe151c425d0dce37d82917ca54d97a"
@@ -34,7 +36,7 @@ func NewTetration() *goh4.H4 {
 }
 
 func handleQuarantine(request alexa.Request) alexa.Response {
-	tetration := NewTetration()
+	tetration := newTetration()
 	ip := "172.30.0.52"
 	scope := "Default"
 
