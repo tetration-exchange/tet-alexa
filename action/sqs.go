@@ -25,7 +25,7 @@ func handleNotification(request alexa.Request) alexa.Response {
 			aws.String(sqs.QueueAttributeNameAll),
 		},
 		QueueUrl:            &qURL,
-		MaxNumberOfMessages: aws.Int64(1),
+		MaxNumberOfMessages: aws.Int64(5),
 		VisibilityTimeout:   aws.Int64(20), // 20 seconds
 		WaitTimeSeconds:     aws.Int64(0),
 	})
@@ -44,7 +44,10 @@ func handleNotification(request alexa.Request) alexa.Response {
 	for _, m := range result.Messages {
 		// *string to string
 		sensorName = *m.Body
-		return alexa.NewSimpleResponse("Notification received", fmt.Sprintf("Message available, a sensor has tampered with i p tables with hostname %s", sensorName))
+		return alexa.NewSimpleResponse("Notification received",
+			fmt.Sprintf(
+				"There are notifications available, the first alert is that a workload with hostname %s has tampered with I P tables, we recommend you quarantine the workload.",
+				sensorName))
 	}
 	return alexa.NewSimpleResponse("No messages", "There are no notifications")
 }
