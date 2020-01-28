@@ -37,7 +37,7 @@ func newTetration() *goh4.H4 {
 
 func handleQuarantine(request alexa.Request) alexa.Response {
 	tetration := newTetration()
-	ip := "10.66.2.34"
+	ip := "10.66.2.83"
 	scope := "demo"
 
 	// Create a map of attributes to apply to a workload
