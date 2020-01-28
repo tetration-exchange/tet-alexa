@@ -6,7 +6,6 @@ import (
 	"strings"
 
 	"github.com/aws/aws-lambda-go/events"
-	"github.com/aws/aws-lambda-go/lambda"
 )
 
 // Handler is the lambda hander
@@ -31,5 +30,9 @@ func Handler(kinesisEvent events.KinesisEvent) {
 }
 
 func main() {
-	lambda.Start(Handler)
+	a := NewAlexaMessaging("amzn1.application-oa2-client.826a17f54181487e8b6ae926c0f2c544", "664a9b3eac5dca5a0c81f7cc85ef5f3c796ee28720dc6cd6af636a586b9cc5a5")
+	//lambda.Start(Handler)
+
+	userID := "amzn1.ask.account.AG5J2M6V6QCUPTB6UJC6D5N7UGOFZNECWDZ6SBFJQVQ6NUMX2UYRAJPMTAZRNX2WUULYL243U3PMIROMAIT6AUPB2PO7VE6WWF2MKUVNDX43TOHIMWQVYGBCJJFXME4QUPSNVOYAFSIPAC2H4OM4QJLN4LOXDEVUGRCM2P65ZXQPSK5HE6XSB5F4ZA7MP72DLDFBZC5DHKGBYZY"
+	a.NewNotification(userID, "hello Tim!")
 }
