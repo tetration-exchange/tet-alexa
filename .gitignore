@@ -2,3 +2,6 @@ deploy/
 deploy.yaml
 .envrc
 notification/deploy.yaml
+.vscode
+.pytest_cache
+.venv
