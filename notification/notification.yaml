@@ -14,6 +14,6 @@ Resources:
         KinesisEvent:
           Type: Kinesis
           Properties:
-            Stream: arn:aws:kinesis:us-west-2:938996165657:stream/vesx2
+            Stream: arn:aws:kinesis:us-west-2:938996165657:stream/demo-tetrationpreview-com
             StartingPosition: LATEST
             BatchSize: 100
